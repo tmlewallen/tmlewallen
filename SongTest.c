@@ -4,8 +4,10 @@
 #include <songlib/util.h>
 #include <songlib/songlib.h>
 
-#define dir "/usr/local/share/samples/guitar-electric/"
-#define base "strat_"
+#define dir1 "/usr/local/share/samples/piano/"
+#define base1 "bright_"
+#define dir2 "/usr/local/share/samples/guitar-electric/"
+#define base2 "strat_"
 
 /* change PROGRAM_NAME and PROGRAM_VERSION appropriately */
 
@@ -16,20 +18,22 @@ int
 main()
     {
         //Add something
-    int instrument;
+    int instrument,guitar;
     int octave = 3;
     int marker = 0;
+    // int location1,location2;
 
     songInit();
 
-    instrument = readScale(dir,base);
+    instrument = readScale(dir1,base1);
+    guitar = readScale(dir2,base2);
 
     setKey(E);
     setTempo(175);
     setTime(4,4);
-    setStride(0.05);
-    setSustain(0.99995);
-    setAmplitude(0.4);
+    setStride(0.02);
+    setSustain(0.99998);
+    setAmplitude(0.3);
 
     openOutput("SongTest.rra",0,0);
 
@@ -53,14 +57,17 @@ main()
 VERSE:
 
     // 1: 1-5-8 "x-xs"
+    // location1 = getLocation();
     b(1,Q,instrument,octave-1,"x-xs",SX);
 
-    b(1,I,instrument,octave-1,"x",SX);
-    b(1,H,instrument,octave-1,"u","U","--x","--x",SX);
-    b(1,H,instrument,octave-1,"--S","--x","---s","---s",SX);
-    b(1,H,instrument,octave-1,"--u","--S","--x","--x",SX);
-    b(1,I,instrument,octave-1,"U",SX);
-    b(1,Q,instrument,octave-1,"x",SX);
+    b(1,I,instrument,octave-1,"x-xs",SX);
+    b(1,H,instrument,octave-1,"u-xs","U-xs","--xs","--xs",SX);
+    b(1,H,instrument,octave-1,"--Ss","--xs","---s","---s",SX);
+    b(1,H,instrument,octave-1,"--us","--Ss","--xs","--xs",SX);
+    b(1,I,instrument,octave-1,"U-xs",SX);
+    b(1,Q,instrument,octave-1,"x-xs",SX);
+ 
+
     rest(I);
     b(1,H,instrument,octave,"xx-b","-","xx-b","xx-b",SX);
     rest(Q);
