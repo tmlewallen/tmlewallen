@@ -1,6 +1,7 @@
 # Place the names of all your tracks here (as RRA filenames)
 
-RRAS = SongTest.rra
+RRAS1 = SongTest.rra
+RRAS2 = another.rra
 
 all : $(RRAS)
 
@@ -14,8 +15,11 @@ all : $(RRAS)
 %.x     : %.c
 		gcc $(LOCAL) -Wall -g -o $@ $< -lsong -lm
 
-play    : $(RRAS)
+play    : $(RRAS1)
 		rrafastmixer -a0.5 $(RRAS) | rplay
+
+mix		: $(RRAS1) $(RRAS2)
+		rrafastmixer -a0.5 $(RRAS1) $(RRAS2) | rplay
 
 .PHONY : clean
 
