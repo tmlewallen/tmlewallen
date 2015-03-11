@@ -27,7 +27,7 @@ int main(){
     setTime(4,4);
     setStride(0.02);
     setSustain(0.99995);
-    setAmplitude(0.3);
+    setAmplitude(0.4);
 
     openOutput("another.rra",0,0);
 

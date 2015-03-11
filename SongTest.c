@@ -28,7 +28,7 @@ main()
     instrument = readScale(dir1,base1);
     guitar = readScale(dir2,base2);
 
-    setKey(E);
+    setKey(Eb);
     setTempo(175);
     setTime(4,4);
     setStride(0.02);
@@ -37,7 +37,7 @@ main()
 
     openOutput("SongTest.rra",0,0);
 
-
+    // rest(W);
     b(1,Q,instrument,octave,"-x","--x",SX);
     b(6,I,instrument,octave,"x",SX);
     // ci1(1,W,instrument,octave);
@@ -169,10 +169,10 @@ VERSE:
     b(5,Q,instrument,octave-1,"xx-x",SX);
     b(5,Q,instrument,octave-1,"xx-x","xx-x",SX);
 
-    if (!marker){
-        marker = 1;
-        goto VERSE;
-    }
+    // if (!marker){
+    //     marker = 1;
+    //     goto VERSE;
+    // }
     rest(I);
 
     closeOutput();
