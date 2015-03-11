@@ -1,27 +1,43 @@
-# Place the names of all your tracks here (as RRA filenames)
+#Place the names of all your tracks here (as RRA filenames)
 
-RRAS1 = SongTest.rra
-RRAS2 = another.rra
+RRA = SongTest.rra another.rra
+SRRA = SongTest.rra another.rra
+INCLUDE=/usr/local/include/songlib/
+LIB=/usr/local/lib/
 
-all : $(RRAS)
+all : $(RRA)
 
-
-# comment out the rplay line if you don't want automatic playing
-
-%.rra   : %.x
+%.rra	: %.x
 		./$<
-		rplay $@
 
-%.x     : %.c
-		gcc $(LOCAL) -Wall -g -o $@ $< -lsong -lm
+%.x	: %.c
+		gcc -Wall -o $@ -I$(INCLUDE) $< -L$(LIB) -lsong -lm 
 
-play    : $(RRAS1)
-		rrafastmixer -a0.5 $(RRAS) | rplay
+mix.rra		: $(RRA)
+		rrafastmixer $(RRA) > mix.rra
 
-mix		: $(RRAS1) $(RRAS2)
-		rrafastmixer -a0.5 $(RRAS1) $(RRAS2) | rplay
+play	: $(RRA)
+		rplay $(RRA)
+
+playmix : mix.rra
+		rplay mix.rra
+
+s-rpiano.rra : rpiano.rra
+		rrastereo -r rpiano.rra s-rpiano.rra
+
+playmaster:  $(SRRA)
+	rrafastmixer $(SRRA) | rramaster ! rplay
+
+master.rra :  $(SRRA)
+	rrafastmixer $(SRRA) | rramaster > master.rra
+
+master.mp3 : master.rra
+	rra2mp3 master.rra
+
+rraidentity : rraidentity.c
+		gcc -Wall -g -o rraidentity rraidentity.c -lsong -lm 
 
 .PHONY : clean
 
 clean :
-		-rm -f $(RRAS)
+		rm -f $(RRA) $(SRRA) master.rra mix.rra master.mp3
