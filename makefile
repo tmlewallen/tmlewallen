@@ -1,7 +1,7 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = SongTest.rra another.rra
-SRRA = SongTest.rra another.rra
+RRA = Lead.rra Drums.rra
+SRRA = Lead.rra Drums.rra
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
 
@@ -10,7 +10,7 @@ all : $(RRA)
 %.rra	: %.x
 		./$<
 
-%.x	: %.c
+%.x	: %.c song
 		gcc -Wall -o $@ -I$(INCLUDE) $< -L$(LIB) -lsong -lm 
 
 mix.rra		: $(RRA)
@@ -36,6 +36,9 @@ master.mp3 : master.rra
 
 rraidentity : rraidentity.c
 		gcc -Wall -g -o rraidentity rraidentity.c -lsong -lm 
+
+song : 
+
 
 .PHONY : clean
 
