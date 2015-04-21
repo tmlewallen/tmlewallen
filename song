@@ -1,9 +1,0 @@
-setKey(Eb);
-setTempo(175);
-setTime(4,4);
-setStride(0.02);
-setSustain(0.99995);
-
-intro();
-
-verse();

@@ -1,0 +1,15 @@
+setKey(Eb);
+setTempo(175);
+setTime(4,4);
+setStride(0.04);
+
+
+intro();
+
+verse1();
+
+verse2();
+
+bridge();
+
+verse2();
