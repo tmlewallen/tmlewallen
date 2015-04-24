@@ -19,6 +19,8 @@ void intro(void);
 void verse1(void);
 void verse2(void);
 void bridge(void);
+void outro(void);
+
 int
 main()
     {
@@ -29,7 +31,7 @@ main()
     instrument = readScale(dir,base);
     openOutput("bass.rra",0,0);
 
-    setAmplitude(.3);
+    setAmplitude(.13);
     setSustain(0.9999);
 
     #include "song"
@@ -145,16 +147,15 @@ void intro(){
     b(1,Q,instrument,octave-1,"x",SX);
 
     b(1,Q,instrument,octave-1,"x",SX);
-    b(5,I,instrument,octave-1,"x",SX);
-
+    b(5,Q,instrument,octave-1,"B","b",SX);
     b(5,Q,instrument,octave-1,"x",SX);
-    b(5,I,instrument,octave-1,"x",SX);
+    b(5,Q,instrument,octave-1,"x","x",SX);
 
-    b(5,Q,instrument,octave-1,"x",SX);
 
 }
 
 void verse1(){
+    // b(1,Q,instrument,octave-1,"x",SX);
 	b(1,Q,instrument,octave-1,"x",SX);
     b(1,I,instrument,octave-1,"x",SX);
     b(1,Q,instrument,octave-1,"x",SX);
@@ -269,13 +270,10 @@ void verse1(){
 
     b(1,Q,instrument,octave-1,"x",SX);
 
+    b(1,Q,instrument,octave-1,"x",SX);
+    b(5,Q,instrument,octave-1,"B","b",SX);
     b(5,Q,instrument,octave-1,"x",SX);
-    b(5,I,instrument,octave-1,"x",SX);
-
-    b(5,Q,instrument,octave-1,"x",SX);
-    b(5,I,instrument,octave-1,"x",SX);
-
-    b(5,Q,instrument,octave-1,"x",SX);
+    b(5,Q,instrument,octave-1,"x","x",SX);
 
 }
 
@@ -373,7 +371,23 @@ void bridge(){
     b(5,Q,instrument,octave-1,"B","b",SX);
     b(5,Q,instrument,octave-1,"x",SX);
     b(5,Q,instrument,octave-1,"x","x",SX);
+}
 
+void outro(){
+    rest(Qd);
+    b(8,Q,instrument,octave-1,"x",SX);
+    b(8,I,instrument,octave-1,"x",SX);
+    b(1,Q,instrument,octave-1,"x",SX);
+    b(1,I,instrument,octave-1,"x",SX);
+    // b(1,I,instrument,octave-1,"x",SX);
+    b(8,I,instrument,octave-1,"x",SX);
+    b(6,I,instrument,octave-1,"x",SX);
+    b(5,I,instrument,octave-1,"x",SX);
+    b(1,Qd,instrument,octave-1,"x",SX);
+
+    b(1,Wd,instrument,octave-1,"x",SX);
+    
+    
 }
 
 

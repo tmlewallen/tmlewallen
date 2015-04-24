@@ -19,6 +19,8 @@ void intro(void);
 void verse1(void);
 void verse2(void);
 void bridge(void);
+void outro(void);
+
 int
 main()
     {
@@ -29,7 +31,7 @@ main()
     instrument = readScale(dir1,base1);
     openOutput("piano.rra",0,0);
 
-    setAmplitude(.1);
+    setAmplitude(.15);
 
     #include "song"
 
@@ -105,4 +107,11 @@ void verse2(){
 
 void bridge(){
     verse1();
+}
+
+void outro(){
+    rest(Qd);
+    rest(Wd);
+    // cchord(8,Q,instrument,octave,"x--s");
+
 }

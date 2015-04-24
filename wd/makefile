@@ -1,7 +1,7 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = Lead.rra bass.rra Drums.rra piano.rra guitar.rra
-SRRA = Lead.rra bass.rra Drums.rra piano.rra guitar.rra
+RRA = bass.rra Drums.rra guitar.rra Lead.rra piano.rra 
+SRRA =  bass.rra Drums.rra guitar.rra Lead.rra  piano.rra 
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
 

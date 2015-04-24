@@ -19,6 +19,8 @@ void intro(void);
 void verse1(void);
 void verse2(void);
 void bridge(void);
+void outro(void);
+
 int
 main()
     {
@@ -29,7 +31,7 @@ main()
     instrument = readScale(dir1,base1);
     openOutput("Lead.rra",0,0);
 
-    setAmplitude(.2);
+    setAmplitude(.3);
     setSustain(0.99995);
 
     #include "song"
@@ -246,6 +248,20 @@ void bridge(){
     b(5,Q,instrument,octave-1,"B","b",SX);
     b(5,Q,instrument,octave-1,"xx-x",SX);
     b(5,Q,instrument,octave-1,"xx-x","xx-x",SX);
+}
+
+void outro(){
+    rest(Qd);
+    cchord(8,Q,instrument,octave-1,"x--s");
+    cchord(8,I,instrument,octave-1,"x--s");
+    cchord(6,Q,instrument,octave-1,"x--S");
+    cchord(3,I,instrument,octave-1,"x--S");
+    cchord(5,I,instrument,octave-1,"x--S");
+    cchord(6,I,instrument,octave-1,"x--S");
+    cchord(7,I,instrument,octave-1,"x--S");
+    cchord(8,Qd,instrument,octave-1,"x--s");
+
+    b(1,Wd,instrument,octave-1,"xxuu",SX);
 
 
 }

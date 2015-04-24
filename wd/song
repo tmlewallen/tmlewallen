@@ -1,4 +1,4 @@
-setKey(Eb);
+setKey(D);
 setTempo(175);
 setTime(4,4);
 setStride(0.04);
@@ -13,3 +13,5 @@ verse2();
 bridge();
 
 verse2();
+
+outro();

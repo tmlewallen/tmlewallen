@@ -16,10 +16,11 @@ void intro(void);
 void verse1(void);
 void verse2(void);
 void bridge(void);
+void outro(void);
 
 int main(){
 	int instrument;
-    int octave = 3;
+    // int octave = 3;
 
     songInit();
 
@@ -262,4 +263,26 @@ void bridge(){
     drumkitTom     (1,1,"--------",SX); setLocation(spot);
     drumkitTomLo   (1,1,"--x-----",SX);
 
+}
+
+void outro(){
+    // rest(Qd);
+    int spot;
+    spot = getLocation();
+    drumkitHHOpen  (1,1,"--------",SX); setLocation(spot);
+    drumkitCrash   (1,1,"--------",SX); setLocation(spot);
+    drumkitSnare   (1,1,"--f-f---",SX); setLocation(spot);
+    drumkitKick    (1,1,"-----X-x",SX); setLocation(spot);
+    drumkitTomHi   (1,1,"-----x--",SX); setLocation(spot);
+    drumkitTom     (1,1,"--------",SX); setLocation(spot);
+    drumkitTomLo   (1,1,"--------",SX);
+
+    spot = getLocation();
+    drumkitHHOpen  (1,1,"------X-",SX); setLocation(spot);
+    drumkitCrash   (1,1,"------X-",SX); setLocation(spot);
+    drumkitSnare   (1,1,"f-------",SX); setLocation(spot);
+    drumkitKick    (1,1,"------X-",SX); setLocation(spot);
+    drumkitTomHi   (1,1,"-X------",SX); setLocation(spot);
+    drumkitTom     (1,1,"--X-----",SX); setLocation(spot);
+    drumkitTomLo   (1,1,"---X----",SX);   
 }

@@ -19,6 +19,8 @@ void intro(void);
 void verse1(void);
 void verse2(void);
 void bridge(void);
+void outro(void);
+
 int
 main()
     {
@@ -29,7 +31,7 @@ main()
     instrument = readScale(dir2,base2);
     openOutput("guitar.rra",0,0);
 
-    setAmplitude(.15);
+    setAmplitude(.2);
     setSustain(0.99992);
 
     #include "song"
@@ -337,4 +339,20 @@ void bridge(){
     b(5,Q,instrument,octave-1,"xx-x",SX);
     b(5,Q,instrument,octave-1,"xx-x","xx-x",SX);
 
+}
+
+void outro(){
+    rest(Qd);
+    cchord(8,Q,instrument,octave-1,"x");
+    cchord(8,I,instrument,octave-1,"x");
+    cchord(6,Q,instrument,octave-1,"x");
+    cchord(3,I,instrument,octave-1,"x");
+    cchord(5,I,instrument,octave-1,"x");
+    cchord(6,I,instrument,octave-1,"x");
+    cchord(7,I,instrument,octave-1,"x");
+    cchord(8,Qd,instrument,octave-1,"x");
+
+    int spot = getLocation();
+    b(1,Wd,instrument,octave,"xxuu",SX); setLocation(spot);
+    b(6,Wd,instrument,octave+1,"B",SX);
 }
